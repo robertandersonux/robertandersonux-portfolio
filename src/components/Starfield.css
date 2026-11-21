@@ -1,0 +1,15 @@
+.starfield {
+  /* Absolute + inset: 0 stretches the canvas over its whole parent (the hero)
+     without taking up any space in the layout. */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* clicks pass straight through to the buttons on top */
+
+  /* A mask fades the canvas out near the bottom, so the glow blends into
+     the page background instead of ending in a hard line. Black = visible,
+     transparent = hidden. */
+  -webkit-mask-image: linear-gradient(#000 70%, transparent);
+  mask-image: linear-gradient(#000 70%, transparent);
+}

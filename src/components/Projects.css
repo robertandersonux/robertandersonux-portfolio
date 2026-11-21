@@ -1,0 +1,41 @@
+.projects {
+  max-width: 1160px;
+  margin: 0 auto; /* centers the section horizontally */
+  padding: clamp(64px, 8vw, 112px) var(--page-padding-x) clamp(96px, 12vw, 160px);
+
+  /* When a nav link jumps here, leave room so the sticky nav doesn't cover the heading */
+  scroll-margin-top: 64px;
+}
+
+.projects__header {
+  text-align: center;
+  margin-bottom: clamp(64px, 8vw, 112px);
+}
+
+/* "Eyebrow" is the design term for a small label above a heading */
+.projects__eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-light-blue);
+}
+
+.projects__title {
+  margin: 16px 0 0;
+  font-weight: 300;
+  font-size: clamp(32px, 4.4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.projects__accent {
+  color: var(--color-electric-blue);
+}
+
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(96px, 12vw, 160px);
+}

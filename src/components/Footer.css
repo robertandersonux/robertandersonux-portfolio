@@ -1,0 +1,50 @@
+.footer {
+  /* Same layout idea as the nav: three groups pushed to the left, middle and right */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* On narrow screens there isn't room for all three side by side,
+     so wrap lets them drop onto new lines instead of squashing */
+  flex-wrap: wrap;
+  gap: 20px;
+
+  padding: 40px var(--page-padding-x);
+  border-top: 1px solid var(--color-border); /* a thin line separating it from the content above */
+}
+
+.footer__brand {
+  display: flex; /* removes the small gap browsers add under images inside links */
+}
+
+.footer__logo {
+  height: 50px; /* bigger than the nav logo, so the brand anchors the bottom of the page */
+  width: auto;
+}
+
+.footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  font-size: 13px;
+}
+
+/* Footer links are utility actions, not the primary one, so they stay quiet:
+   muted white, brightening to full white on hover (same as the nav links) */
+.footer__links a {
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+
+.footer__links a:hover {
+  color: var(--color-white);
+}
+
+.footer__copyright {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}

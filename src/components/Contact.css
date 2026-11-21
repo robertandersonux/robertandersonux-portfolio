@@ -1,0 +1,47 @@
+.contact {
+  position: relative; /* the glow (::before below) is positioned inside this box */
+  padding: clamp(140px, 16vw, 220px) 24px;
+  text-align: center;
+  scroll-margin-top: 64px; /* keeps the sticky nav from covering the heading after a jump */
+}
+
+/*
+  A soft blue glow behind the heading, made with pure CSS, no canvas this time.
+  ::before creates an extra "pseudo-element" inside .contact without adding any HTML.
+  It's decoration only, so keeping it out of the HTML keeps the markup clean.
+*/
+.contact::before {
+  content: ''; /* required: a pseudo-element only appears if it has content, even empty */
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* An ellipse 40% wide and 50% tall, centered just below the middle, fading to transparent */
+  background: radial-gradient(
+    ellipse 40% 50% at 50% 55%,
+    rgba(82, 113, 255, 0.16), /* electric blue at low opacity */
+    transparent 70%
+  );
+}
+
+/* position: relative lifts the text and button above the ::before glow */
+.contact__title,
+.contact__button {
+  position: relative;
+}
+
+.contact__title {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+/* The second line is quieter so the question leads and the answer follows */
+.contact__muted {
+  color: var(--color-text-muted);
+}
+
+.contact__button {
+  margin-top: 40px;
+}

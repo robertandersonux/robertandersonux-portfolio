@@ -1,0 +1,161 @@
+/*
+  Mobile first: these base styles are for small screens (image on top,
+  text below). The @media block at the bottom switches to side-by-side
+  on wider screens.
+*/
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  /* When a carousel tile jumps here, stop a little below the top
+     so the sticky nav doesn't cover the card */
+  scroll-margin-top: 96px;
+}
+
+/* "order" changes the visual order without changing the HTML order.
+   Screen readers still read the text first, then the image. */
+.project-card__image {
+  order: -1;
+
+  /* Every card gets the same frame shape, whatever the image's real size */
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden; /* clips the image's corners to the rounded frame */
+  border: 1px solid var(--color-border);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+.project-card__image img {
+  display: block; /* removes the small gap browsers leave under inline images */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fill the frame, cropping any overflow */
+  object-position: top;    /* when cropping, keep the top of the screenshot */
+  transition: transform 0.4s;
+}
+
+/* For logos and square images: show the whole thing, centered, no cropping */
+.project-card__image--contain img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-card:hover .project-card__image img {
+  transform: scale(1.03);
+}
+
+.project-card__label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-light-blue);
+}
+
+.project-card__title {
+  margin: 14px 0 0;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: -0.03em;
+}
+
+.project-card__tags {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-card__tags li {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.project-card__description {
+  margin: 16px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* Holds the main link and the GitHub link side by side */
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* The second link (GitHub, prototype) is secondary, so it's quieter than the main link:
+   muted text, no underline, no orange arrow */
+.project-card__secondary {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+
+.project-card__secondary:hover {
+  color: var(--color-white);
+}
+
+.project-card__link {
+  display: inline-flex;
+  gap: 6px;
+  padding-bottom: 4px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--color-light-blue);
+  transition: color 0.2s;
+}
+
+.project-card__link:hover {
+  color: var(--color-light-blue);
+}
+
+/* Arrows use the brand orange */
+.project-card__link span {
+  color: var(--color-burnt-orange);
+  transition: transform 0.2s;
+}
+
+.project-card__link:hover span {
+  transform: translateX(3px);
+}
+
+/* Tablet and up: text and image side by side */
+@media (min-width: 768px) {
+  .project-card {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(32px, 5vw, 72px);
+  }
+
+  /* flex: grow shrink basis. The image takes a bit more room than the text. */
+  .project-card__text {
+    flex: 2;
+  }
+
+  .project-card__image {
+    flex: 3;
+    order: 0; /* back to its HTML position: after the text */
+  }
+
+  /* Every second card puts the image on the left, so the layout zig-zags */
+  .project-card:nth-child(even) .project-card__image {
+    order: -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card__image img,
+  .project-card__link span {
+    transition: none;
+  }
+}

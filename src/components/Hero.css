@@ -1,0 +1,75 @@
+.hero {
+  /* position: relative makes the hero the frame that the absolutely
+     positioned Starfield stretches to fill */
+  position: relative;
+
+  /* The carousel slides cards far past the screen edges. Without this,
+     those off-screen cards would add a horizontal scrollbar to the page. */
+  overflow: hidden;
+
+  /* Lots of space at the top on desktop, less on phones (see clamp() in index.css) */
+  padding: clamp(80px, 12vw, 140px) 0 clamp(64px, 8vw, 96px);
+  text-align: center;
+}
+
+/* position: relative puts the text on a layer above the Starfield canvas.
+   Positioned elements paint in HTML order, and this comes after the canvas. */
+.hero__content {
+  position: relative;
+  padding: 0 24px;
+}
+
+.hero__title {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(48px, 8vw, 104px);
+  line-height: 0.98;        /* tight lines so the two lines read as one block */
+  letter-spacing: -0.045em; /* large light type looks better with tighter spacing */
+}
+
+/* Electric blue = accent words in headings (brand rule).
+   The Starfield keeps its brightest glow away from the heading, so this stays readable. */
+.hero__accent {
+  color: var(--color-electric-blue);
+}
+
+.hero__subtitle {
+  margin: 28px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-white);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap; /* stack the buttons if the screen is too narrow */
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+/* The .button styles live in index.css because the nav uses them too */
+
+.hero__social {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero__social a {
+  color: var(--color-light-blue);
+  transition: color 0.2s;
+}
+
+.hero__social a:hover {
+  color: var(--color-white);
+}

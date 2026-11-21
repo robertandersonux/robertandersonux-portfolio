@@ -1,0 +1,61 @@
+/*
+  Class names follow BEM: block__element (for example .nav__links).
+  The prefix shows which component a class belongs to and keeps
+  Nav styles from clashing with styles in other components.
+*/
+
+.nav {
+  /* sticky: scrolls normally, then stays pinned to the top of the screen */
+  position: sticky;
+  top: 0;
+  z-index: 20; /* stays above page content as it scrolls underneath */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px var(--page-padding-x);
+
+  /* A see-through deep blue plus a blur gives the frosted glass look */
+  background: rgba(10, 24, 49, 0.72);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav__brand {
+  display: flex; /* removes the small gap browsers add under images inside links */
+}
+
+/* Set only the height. With width: auto the browser works out the width
+   from the image's own proportions, so the logo never looks stretched. */
+.nav__logo {
+  height: 40px;
+  width: auto;
+}
+
+.nav__links {
+  /* Remove the default bullets and spacing a <ul> has */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: clamp(16px, 3vw, 32px);
+  font-size: 13px;
+}
+
+.nav__links a {
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+
+.nav__links a:hover {
+  color: var(--color-white);
+}
+
+/* Hide the middle links on small phones so the nav fits on one row */
+@media (max-width: 480px) {
+  .nav__links {
+    display: none;
+  }
+}

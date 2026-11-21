@@ -1,0 +1,47 @@
+.carousel {
+  /* A CSS variable for the card width. The math below uses it twice. */
+  --card-width: clamp(180px, 20vw, 280px);
+
+  position: relative; /* the cards are positioned relative to this box */
+  width: 100%;
+  height: clamp(240px, 28vw, 360px);
+  margin-top: 64px;
+
+  /* Fade the cards out at the left and right edges */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.carousel__card {
+  /* Every card starts stacked in the exact center: left: 50% moves its left
+     edge to the middle, then a negative margin of half its width pulls it back.
+     JavaScript then slides each card sideways from there with transform. */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--card-width);
+  margin-left: calc(var(--card-width) / -2);
+  aspect-ratio: 16 / 10;
+
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  background: var(--color-deep-blue);
+
+  /* Hint to the browser that transform changes constantly, so it can animate it smoothly */
+  will-change: transform;
+}
+
+.carousel__card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.carousel__card--contain img {
+  object-fit: contain;
+  object-position: center;
+}

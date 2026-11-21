@@ -23,9 +23,9 @@
   );
 }
 
-/* position: relative lifts the text and button above the ::before glow */
-.contact__title,
-.contact__button {
+/* position: relative lifts the heading above the ::before glow
+   (the form does the same in ContactForm.css) */
+.contact__title {
   position: relative;
 }
 
@@ -40,8 +40,4 @@
 /* The second line is quieter so the question leads and the answer follows */
 .contact__muted {
   color: var(--color-text-muted);
-}
-
-.contact__button {
-  margin-top: 40px;
 }

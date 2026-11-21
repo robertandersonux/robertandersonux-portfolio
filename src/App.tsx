@@ -1,5 +1,6 @@
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -10,8 +11,8 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <About />
         <Projects />
-        {/* Still to come: About */}
         <Contact />
       </main>
       {/* The footer sits outside <main>: it's site-wide utility, not this page's main content */}

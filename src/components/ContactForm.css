@@ -1,0 +1,89 @@
+.contact-form {
+  position: relative; /* sits above the Contact section's ::before glow */
+  max-width: 560px;
+  margin: 48px auto 0;
+  text-align: left; /* the Contact section centers its text; form fields read better left-aligned */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Small labels use light blue, per the brand rules (6.5:1 contrast on deep blue) */
+.contact-form__field label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-light-blue);
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04); /* a faint lift off the background */
+  color: var(--color-white);
+  font: inherit; /* form fields don't inherit the page font by default */
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.contact-form__field textarea {
+  resize: vertical; /* visitors can make it taller, but not wider than the layout */
+}
+
+/* A clear focus state, so keyboard and mouse users both see which field they're in */
+.contact-form__field input:focus,
+.contact-form__field textarea:focus {
+  outline: none;
+  border-color: var(--color-light-blue);
+  box-shadow: 0 0 0 3px rgba(127, 151, 255, 0.25);
+}
+
+.contact-form__submit {
+  align-self: flex-start; /* button keeps its natural width instead of stretching */
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.contact-form__note,
+.contact-form__error,
+.contact-form__message {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.contact-form__note a,
+.contact-form__error a {
+  color: var(--color-light-blue);
+  text-decoration: underline;
+}
+
+.contact-form__error {
+  color: var(--color-white);
+}
+
+/* The thank-you message replaces the form, so it gets the form's spacing */
+.contact-form__message {
+  position: relative;
+  max-width: 560px;
+  margin: 48px auto 0;
+  font-size: 17px;
+  color: var(--color-white);
+}

@@ -1,0 +1,129 @@
+.about {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(96px, 12vw, 160px) var(--page-padding-x) 0;
+  scroll-margin-top: 64px; /* keeps the sticky nav from covering the heading after a jump */
+}
+
+/* ---------- Intro: heading and bio ---------- */
+
+.about__intro {
+  max-width: 720px; /* long lines are tiring to read; ~70 characters is comfortable */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Matches .projects__eyebrow */
+.about__eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-light-blue);
+}
+
+.about__title {
+  margin: 16px 0 0;
+  font-weight: 300;
+  font-size: clamp(32px, 4.4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+/* Electric blue = accent words in headings (brand rule) */
+.about__accent {
+  color: var(--color-electric-blue);
+}
+
+.about__text {
+  margin: 24px 0 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Tools: Design / Build / Ship ---------- */
+
+.about__tools {
+  margin-top: clamp(48px, 6vw, 72px); /* close enough to read as part of the bio */
+  text-align: center;
+}
+
+.about__subtitle {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(26px, 3.2vw, 36px);
+  letter-spacing: -0.03em;
+}
+
+.about__subtext {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.about__cards {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+
+  /*
+    auto-fit + minmax: "fit as many columns as you can, each at least 240px wide,
+    sharing the leftover space equally." Three across on a laptop, then they wrap
+    to fewer columns and finally stack on a phone, with no media query needed.
+  */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.about__card {
+  padding: 32px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.03); /* a faint lift off the page */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/*
+  Hover: a soft electric-blue glow, but no upward movement.
+  These cards aren't links, and lifting is the signal people associate
+  with "you can click this". A glow adds life without making a false promise.
+  Color changes don't count as motion, so reduced-motion users still get this.
+*/
+.about__card:hover {
+  border-color: rgba(82, 113, 255, 0.45); /* electric blue, partly see-through */
+  box-shadow: 0 0 32px rgba(82, 113, 255, 0.15);
+}
+
+/* Lucide icons draw with "currentColor", so setting color here colors the icon */
+.about__icon {
+  color: var(--color-electric-blue);
+}
+
+.about__card-title {
+  margin: 12px 0 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/*
+  The list block sits centered under the title (width: fit-content + margin: auto),
+  but its lines are left-aligned. Every line starts at the same edge,
+  which is faster to scan than a ragged centered list.
+*/
+.about__list {
+  list-style: none;
+  width: fit-content;
+  margin: 20px auto 0;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}

@@ -19,7 +19,7 @@ function Hero() {
           I'm <span className="hero__accent">Robert.</span>
         </h1>
 
-        <p className="hero__subtitle">UX Designer and Front-End Engineer</p>
+        <p className="hero__subtitle">UX Designer &amp; Front-End Developer</p>
 
         <div className="hero__actions">
           <a href="#projects" className="button button--white">

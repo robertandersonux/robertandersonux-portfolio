@@ -1,6 +1,5 @@
-// White-text version, made for dark backgrounds like this nav.
-// (The "-for-light-bg" version has dark text, for light backgrounds.)
-import logo from '../assets/RobertAndersonUXLogo-no-tagline.png'
+// Logo with a transparent background ("no bg"), so the nav's frosted blue shows through.
+import logo from '../assets/Robert Anderson RAUX Logo no bg.png'
 import './Nav.css'
 
 // Keeping the links in an array means adding a page later is a one-line change.

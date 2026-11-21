@@ -29,7 +29,7 @@
 /* Set only the height. With width: auto the browser works out the width
    from the image's own proportions, so the logo never looks stretched. */
 .nav__logo {
-  height: 40px;
+  height: 60px;
   width: auto;
 }
 

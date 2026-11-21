@@ -1,8 +1,5 @@
+import ContactForm from './ContactForm'
 import './Contact.css'
-
-// TODO: replace with the email address you want visitors to use.
-// "mailto:" links open the visitor's email app with a new message to that address.
-const EMAIL_LINK = 'mailto:robert@robertandersonux.com'
 
 function Contact() {
   return (
@@ -14,10 +11,10 @@ function Contact() {
         <span className="contact__muted">Let's talk.</span>
       </h2>
 
-      {/* The page's final call to action, so it uses the primary (orange) button */}
-      <a href={EMAIL_LINK} className="button button--orange contact__button">
-        Get in touch <span aria-hidden="true">→</span>
-      </a>
+      {/* The form replaced the old "Get in touch" email button. mailto: links only work
+          for visitors with an email app set up; a form works for everyone.
+          The email address is still offered inside the form as a fallback. */}
+      <ContactForm />
     </section>
   )
 }

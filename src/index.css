@@ -130,3 +130,11 @@ a:focus-visible {
   outline: 2px solid var(--color-light-blue);
   outline-offset: 3px;
 }
+
+/*
+  Keeps a word or phrase on one line. Browsers treat a hyphen as a place
+  they may wrap, which split "Front-End" into "Front-" / "End" on phones.
+*/
+.nowrap {
+  white-space: nowrap;
+}

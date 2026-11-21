@@ -38,6 +38,9 @@
   font-size: 17px;
   line-height: 1.6;
   color: var(--color-white);
+  /* On narrow phones this wraps as "UX Designer & / Front-End Developer"
+     instead of leaving "Developer" alone on the second line */
+  text-wrap: balance;
 }
 
 .hero__actions {

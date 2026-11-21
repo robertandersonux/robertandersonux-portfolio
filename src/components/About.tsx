@@ -39,7 +39,7 @@ function About() {
             see what I do, and the eyebrow already says which section this is. */}
         <p className="about__eyebrow">About me</p>
         <h2 className="about__title">
-          UX Designer &amp; <span className="about__accent">Front-End Developer</span>
+          UX Designer &amp; <span className="about__accent"><span className="nowrap">Front-End</span> Developer</span>
         </h2>
 
         <p className="about__text">

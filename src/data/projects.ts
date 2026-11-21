@@ -6,7 +6,7 @@
 import summarist from '../assets/summarist.png'
 import anime from '../assets/anime.png'
 import ultraverse from '../assets/ultraverse.png'
-import habit from '../assets/Habit-Stacking-Logo-Design.png'
+import habit from '../assets/habit-stacking.webp' // WebP: same look, a fraction of the file size
 import skinstric from '../assets/skinstric.png' // screenshot of skinstric-rosy.vercel.app
 import dailyBrief from '../assets/daily-brief.png' // screenshot of daily-brief-olive.vercel.app
 

@@ -69,13 +69,19 @@
   padding: 0;
 
   /*
-    auto-fit + minmax: "fit as many columns as you can, each at least 240px wide,
-    sharing the leftover space equally." Three across on a laptop, then they wrap
-    to fewer columns and finally stack on a phone, with no media query needed.
+    One column on phones and small tablets, three across from 768px up.
+    (An auto-fit grid was tried first, but with exactly three cards it made
+    a 2 + 1 layout on tablets, leaving Ship alone on its own row.)
   */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .about__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .about__card {

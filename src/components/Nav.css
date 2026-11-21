@@ -29,7 +29,7 @@
 /* Set only the height. With width: auto the browser works out the width
    from the image's own proportions, so the logo never looks stretched. */
 .nav__logo {
-  height: 60px;
+  height: 40px; /* the trimmed logo has no padding, so 40px is all lettering */
   width: auto;
 }
 
@@ -57,5 +57,12 @@
 @media (max-width: 480px) {
   .nav__links {
     display: none;
+  }
+
+  /* At 40px tall the logo is ~170px wide, a squeeze beside the
+     "Let's talk" button on a small phone. 9vw scales it with the screen
+     (about 30px tall on a 332px-wide phone), never above 36px or below 28px. */
+  .nav__logo {
+    height: clamp(28px, 9vw, 36px);
   }
 }

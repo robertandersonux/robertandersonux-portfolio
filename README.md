@@ -1,75 +1,32 @@
-# React + TypeScript + Vite
+# Robert Anderson UX Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My portfolio as a UX designer and front-end developer. I design in Figma and build it myself in React and TypeScript, so this site is both the showcase and an example of the work.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Project cards with screenshots, live-site links and code links
+- A project carousel that slows down when you hover over it
+- About section, résumé download and a Habit Stacking case study PDF
+- Contact form handled by Netlify Forms, with a hidden spam trap
+- Respects the reduced-motion setting for visitors who turn off animations
 
-## React Compiler
+## Built with
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React · TypeScript · Vite · Netlify
 
-## Expanding the ESLint configuration
+## Getting started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Requires Node 20.19 or newer (run `node -v` to check).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    git clone https://github.com/robertandersonux/robertandersonux-portfolio.git
+    cd robertandersonux-portfolio
+    npm install
+    npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Then open http://localhost:5173 (or the port shown in your terminal).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The contact form only sends messages on the deployed Netlify site, not on your local copy.
 
-```
+## Editing projects
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+All project copy lives in `src/data/projects.ts`, separate from the components that display it. Add or change a project there; no JSX needed.

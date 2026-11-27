@@ -66,7 +66,6 @@ export const projects: Project[] = [
     image: ultraverse,
     imageAlt: 'Ultraverse marketplace home page',
     href: 'https://roberrt-internship.netlify.app/',
-    secondaryLink: { label: 'GitHub', href: 'https://github.com/robertandersonux/roberrt-internship' },
     linkLabel: 'View project',
   },
   {
